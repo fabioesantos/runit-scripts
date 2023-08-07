@@ -18,10 +18,7 @@ install:
 	install -d ${DESTDIR}/${PREFIX}/share/man/man8
 	install -m644 zzz.8 ${DESTDIR}/${PREFIX}/share/man/man8
 	install -m644 shutdown.8 ${DESTDIR}/${PREFIX}/share/man/man8
-	install -m644 halt.8 ${DESTDIR}/${PREFIX}/share/man/man8
 	install -m644 vlogger.8 ${DESTDIR}/${PREFIX}/share/man/man8
-	ln -sf halt.8 ${DESTDIR}/${PREFIX}/share/man/man8/poweroff.8
-	ln -sf halt.8 ${DESTDIR}/${PREFIX}/share/man/man8/reboot.8
 	install -d ${DESTDIR}/etc
 	install -m644 rc.conf ${DESTDIR}/etc/rc.conf
 	install -d ${DESTDIR}/etc/runit
