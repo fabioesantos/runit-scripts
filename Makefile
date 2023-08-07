@@ -1,19 +1,18 @@
 PREFIX = /usr
 
 all:
-	$(CC) $(CFLAGS) halt.c -o halt $(LDFLAGS)
 	$(CC) $(CFLAGS) pause.c -o pause $(LDFLAGS)
 	$(CC) $(CFLAGS) vlogger.c -o vlogger $(LDFLAGS)
 
 install:
 	install -d ${DESTDIR}/${PREFIX}/sbin
-	install -m755 halt ${DESTDIR}/${PREFIX}/sbin
+	install -Dm755 halt ${DESTDIR}${PREFIX}/sbin/halt
+	ln -sf halt ${DESTDIR}${PREFIX}/sbin/poweroff
+	install -Dm755 reboot ${DESTDIR}${PREFIX}/sbin/reboot
 	install -m755 pause ${DESTDIR}/${PREFIX}/sbin
 	install -m755 vlogger ${DESTDIR}/${PREFIX}/sbin
 	install -m755 shutdown ${DESTDIR}/${PREFIX}/sbin/shutdown
 	install -m755 zzz ${DESTDIR}/${PREFIX}/sbin
-	ln -sf halt ${DESTDIR}/${PREFIX}/sbin/poweroff
-	ln -sf halt ${DESTDIR}/${PREFIX}/sbin/reboot
 	install -d ${DESTDIR}/${PREFIX}/share/man/man1
 	install -m644 pause.1 ${DESTDIR}/${PREFIX}/share/man/man1
 	install -d ${DESTDIR}/${PREFIX}/share/man/man8
