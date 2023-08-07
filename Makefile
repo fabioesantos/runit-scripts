@@ -24,7 +24,6 @@ install:
 	ln -sf halt.8 ${DESTDIR}/${PREFIX}/share/man/man8/poweroff.8
 	ln -sf halt.8 ${DESTDIR}/${PREFIX}/share/man/man8/reboot.8
 	install -m644 rc.conf ${DESTDIR}/etc
-	install -d ${DESTDIR}/etc
 	install -d ${DESTDIR}/etc/runit
 	install -d ${DESTDIR}/etc/runit/sysinit.d
 	install -Dm644 -t ${DESTDIR}/etc/runit/sysinit.d sysinit.d/*.sh
