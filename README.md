@@ -2,8 +2,7 @@
 
 This repository contains runit init scripts.
 
-This project is based on https://github.com/void-linux/void-runit, which in turn
-is loosely based on https://github.com/chneukirchen/ignite
+This repository is based on https://github.com/neeshy/runit-rc and https://github.com/void-linux/void-runit
 
 ## Dependencies
 
@@ -39,12 +38,3 @@ To disable and remove a service:
 To view status of all services for "current" runlevel:
 
     # sv status /var/service/*
-    
-## Copyright
-
-This project is in the public domain.
-
-To the extent possible under law, the creator of this work has waived
-all copyright and related or neighboring rights to this work.
-
-http://creativecommons.org/publicdomain/zero/1.0/
