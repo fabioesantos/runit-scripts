@@ -1,0 +1,18 @@
+#!/bin/sh
+PATH="/usr/bin:/usr/sbin:/bin:/sbin"
+
+. /etc/runit/functions
+
+printf '\n'
+
+msg "Waiting for services to stop..."
+sv force-stop /var/service/*
+sv exit /var/service/*
+
+[ -r /etc/rc.conf ] && . /etc/rc.conf
+
+[ -x /etc/rc.shutdown ] && /etc/rc.shutdown
+
+for f in /etc/runit/shutdown.d/*.sh; do
+    [ -r "$f" ] && . "$f"
+done

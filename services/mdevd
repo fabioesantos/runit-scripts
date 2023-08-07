@@ -1,0 +1,2 @@
+#!/bin/sh
+exec mdevd -C 2>&1

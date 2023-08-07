@@ -1,0 +1,20 @@
+#!/bin/sh
+PATH="/usr/bin:/usr/sbin:/bin:/sbin"
+
+. /etc/runit/functions
+. /etc/os-release
+
+msg "Welcome to $PRETTY_NAME!"
+
+[ -r /etc/rc.conf ] && . /etc/rc.conf
+
+# Start core services: one-time system tasks.
+for f in /etc/runit/sysinit.d/*.sh; do
+    [ -r "$f" ] && . "$f"
+done
+
+# create files for controlling runit
+install -Dm000 /dev/null /run/runit/stopit
+install -Dm000 /dev/null /run/runit/reboot
+
+msg "Initialization complete, running stage 2..."
