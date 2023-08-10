@@ -3,6 +3,7 @@ PREFIX = /usr
 all:
 	$(CC) $(CFLAGS) pause.c -o pause $(LDFLAGS)
 	$(CC) $(CFLAGS) vlogger.c -o vlogger $(LDFLAGS)
+	$(CC) $(CFLAGS) seedrng.c -o seedrng $(LDFLAGS)
 
 install:
 	install -d ${DESTDIR}/${PREFIX}/sbin
@@ -12,7 +13,9 @@ install:
 	install -m755 pause ${DESTDIR}/${PREFIX}/sbin
 	install -m755 vlogger ${DESTDIR}/${PREFIX}/sbin
 	install -m755 shutdown ${DESTDIR}/${PREFIX}/sbin/shutdown
+	install -m755 seedrng ${DESTDIR}/${PREFIX}/sbin/seedrng
 	install -m755 zzz ${DESTDIR}/${PREFIX}/sbin
+	ln -sf zzz ${DESTDIR}/${PREFIX}/sbin/ZZZ
 	install -d ${DESTDIR}/${PREFIX}/share/man/man1
 	install -m644 pause.1 ${DESTDIR}/${PREFIX}/share/man/man1
 	install -d ${DESTDIR}/${PREFIX}/share/man/man8
