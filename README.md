@@ -15,7 +15,6 @@ This repository is based on https://github.com/neeshy/runit-rc and https://githu
 - util-linux (needs wall)
 - iproute2
 - runit
-- seedrng (https://git.zx2c4.com/seedrng/about/)
 
 ### How to use it
 
